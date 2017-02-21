@@ -17,6 +17,9 @@
  */
 
 ;
+
+var exp = {};
+
 (function (w) {
 
     var jqPluginName = 'propeller';
@@ -171,7 +174,7 @@
     }
 
     p.onRotated = function (event) {
-        if (this.active === true) {
+        if (this.active === true && event.ctrlKey) {
             event.stopPropagation();
             event.preventDefault();
 
@@ -496,7 +499,7 @@
     Propeller.deg2radians = Math.PI * 2 / 360;
 
     w.Propeller = Propeller;
-})(window);
+})(exp);
 
 //RequestAnimatedFrame polyfill
 window.requestAnimFrame = (function () {
@@ -507,3 +510,5 @@ window.requestAnimFrame = (function () {
         window.setTimeout(callback, 1000 / 60);
     };
 })();
+
+export const Propeller = exp.Propeller;
