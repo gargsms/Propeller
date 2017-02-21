@@ -511,4 +511,4 @@ window.requestAnimFrame = (function () {
     };
 })();
 
-export const Propeller = exp.Propeller;
+module.exports = exp;
